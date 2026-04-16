@@ -10,13 +10,13 @@ Use this skill when the user wants to control the Siemens coffee machine.
 
 Command path
 
-- Script: `{baseDir}/../../siemens-barista.py`
+- Script: `{baseDir}/scripts/siemens-barista.py`
 
 Supported actions
 
-- Turn machine on: `python3 {baseDir}/../../siemens-barista.py on`
-- Turn machine off: `python3 {baseDir}/../../siemens-barista.py off`
-- Brew drink: `python3 {baseDir}/../../siemens-barista.py create <drink>`
+- Turn machine on: `python3 {baseDir}/scripts/siemens-barista.py on`
+- Turn machine off: `python3 {baseDir}/scripts/siemens-barista.py off`
+- Brew drink: `python3 {baseDir}/scripts/siemens-barista.py create <drink>`
 
 Supported `<drink>` values
 
@@ -25,5 +25,5 @@ Supported `<drink>` values
 Behavior rules
 
 - If the user asks to "make coffee" without specifying a drink, use `espresso`.
-- If `~/.siemens_barista.json` is missing or the command output asks for setup, tell the user to run: `python3 siemens-barista.py config`.
+- If `~/.siemens_barista.json` is missing or the command output asks for setup, tell the user to run: `python3 {baseDir}/scripts/siemens-barista.py config`.
 - Execute only one requested machine action at a time unless the user explicitly asks for a sequence.

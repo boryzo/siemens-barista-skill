@@ -40,7 +40,7 @@ Save and copy your Client ID and Client Secret.
 Run the script with the config command to link your account:
 
 Bash
-python3 siemens-barista.py config
+python3 skills/siemens_barista/scripts/siemens-barista.py config
 Enter your Client ID and Client Secret when prompted.
 
 The script will provide a URL. Open it in your browser.
@@ -58,18 +58,21 @@ Brew Caffe Crema
 To start brewing your favorite coffee, run:
 
 Bash
-python3 siemens-barista.py create caffe-creme
+python3 skills/siemens_barista/scripts/siemens-barista.py create caffe-creme
 Automation / Open Claw Skills
 Since the script handles token refreshing automatically, you can simply call the command above from any automation tool or LLM skill. If the session expires, the script will silently update the tokens and proceed with the brewing command.
 
 OpenClaw skill (added in this repo)
 
-- Skill file: `skills/siemens_barista/SKILL.md`
+- Skill files:
+  - `skills/siemens_barista/SKIL.md`
+  - `skills/siemens_barista/_meta.json`
+  - `skills/siemens_barista/scripts/siemens-barista.py`
 - OpenClaw should load workspace skills from `<workspace>/skills`, so this skill is ready to use from this project directory.
 - Supported actions via skill:
-  - `python3 siemens-barista.py on`
-  - `python3 siemens-barista.py off`
-  - `python3 siemens-barista.py create <drink>`
+  - `python3 skills/siemens_barista/scripts/siemens-barista.py on`
+  - `python3 skills/siemens_barista/scripts/siemens-barista.py off`
+  - `python3 skills/siemens_barista/scripts/siemens-barista.py create <drink>`
 - If skills were already loaded in your session, start a new chat/session (or reload skills) so OpenClaw picks up the new skill.
 
 Error Handling
@@ -87,11 +90,11 @@ MIT License
 
 ### Krótkie podsumowanie tego, co zbudowaliśmy:
 
-1.  **Plik `siemens-barista.py`**: Główne narzędzie.
+1.  **Plik `skills/siemens_barista/scripts/siemens-barista.py`**: Główne narzędzie.
     * **Mechanizm OAuth 2.0**: Skrypt nie trzyma tylko hasła, ale bezpieczne tokeny.
     * **Refresh Token**: Skrypt potrafi sam poprosić o nowy klucz dostępu, gdy stary wygaśnie, dzięki czemu "raz skonfigurowany, działa wiecznie".
     * **Nagłówki SDK**: Ustawiliśmy `Accept: application/vnd.bsh.sdk.v1+json`, czyli dokładnie to, czego wymaga Twój ekspres.
 2.  **Plik `~/.siemens_barista.json`**: Tu skrypt przechowuje Twoje ID ekspresu i klucze. Nie musisz go edytować ręcznie.
-3.  **Integracja**: Komenda `python3 siemens-barista.py create caffe-creme` jest idealna dla Open Claw, bo nie wymaga interakcji z użytkownikiem po pierwszym ustawieniu.
+3.  **Integracja**: Komenda `python3 skills/siemens_barista/scripts/siemens-barista.py create caffe-creme` jest idealna dla Open Claw, bo nie wymaga interakcji z użytkownikiem po pierwszym ustawieniu.
 
 Teraz wystarczy, że upewnisz się, że funkcja `get_headers` ma to poprawione `sdk.v1` i możesz parzyć kawę! ☕🚀
