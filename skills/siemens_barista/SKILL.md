@@ -27,3 +27,6 @@ Behavior rules
 - If the user asks to "make coffee" without specifying a drink, use `espresso`.
 - If `~/.siemens_barista.json` is missing or the command output asks for setup, tell the user to run: `python3 {baseDir}/scripts/siemens-barista.py config`.
 - Execute only one requested machine action at a time unless the user explicitly asks for a sequence.
+- For `create <drink>`, first confirm a cup is under the spout unless the user already stated it.
+- Treat `filiżanka`, `kubek`, `szklanka`, and `cup` as valid confirmation words.
+- If not confirmed, ask: `Czy pod wylewka stoi juz filizanka/kubek/szklanka?`

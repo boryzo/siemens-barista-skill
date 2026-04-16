@@ -2,7 +2,7 @@
   "name": "siemens_barista",
   "version": "1.0.0",
   "description": "Skill for controlling a Siemens coffee machine (on/off/brew) via local CLI script.",
-  "entrypoint": "SKIL.md",
+  "entrypoint": "SKILL.md",
   "scripts_dir": "scripts",
   "main_script": "scripts/siemens-barista.py"
 }
